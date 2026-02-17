@@ -1,12 +1,12 @@
 spring:
   application:
     name: llm-demo
-  data:
-    mongodb:
-      uri: ${MONGO_URI}
-      database: llm-demo
+  mongodb:
+    uri:
+    min-pool-size: 0
+    max-pool-size: 30
 
 anthropic:
-  api-key: ${ANTHROPIC_API_KEY}
+  api-key:
   model: claude-sonnet-4-5-20250929
   max-tokens: 1024
