@@ -17,11 +17,11 @@ import java.util.List;
 public class MetadataService {
 
     private static final Logger logger = LoggerFactory.getLogger(MetadataService.class);
-    private final ArmcoClient guardrailsClient;
+    private final ArmcoClient armcoClient;
     private final ObjectMapper objectMapper;
 
-    public MetadataService(ArmcoClient guardrailsClient, ObjectMapper objectMapper) {
-        this.guardrailsClient = guardrailsClient;
+    public MetadataService(ArmcoClient armcoClient, ObjectMapper objectMapper) {
+        this.armcoClient = armcoClient;
         this.objectMapper = objectMapper;
     }
 
@@ -44,7 +44,7 @@ public class MetadataService {
                 .build();
 
         try {
-            String raw = guardrailsClient.extract(request);
+            String raw = armcoClient.extract(request);
             JsonNode node = objectMapper.readTree(raw);
 
             List<String> keywords = new ArrayList<>();
